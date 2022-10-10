@@ -1,4 +1,4 @@
-# Copyright 2022 Canonical Ltd.
+# Copyright 2022 Ubuntu
 # See LICENSE file for licensing details.
 #
 # TEMPLATE-TODO: change this example to suit your needs.
@@ -8,7 +8,9 @@
 # Learn more about config at: https://juju.is/docs/sdk/config
 
 options:
-  thing:
-    default: 🎁
-    description: A thing used by the charm.
+  external-hostname:
+    default: ""
+    description: |
+      The external hostname this application should be available on. If unset,
+      it will default to the deployed application name in the model.
     type: string
