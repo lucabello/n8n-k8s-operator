@@ -14,3 +14,9 @@ options:
       The external hostname this application should be available on. If unset,
       it will default to the deployed application name in the model.
     type: string
+  disable-authentication:
+    default: False
+    description: |
+      Flag to disable user management. If true, the user won't be prompted to
+      register for an account.
+    type: boolean

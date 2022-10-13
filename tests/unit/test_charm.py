@@ -38,7 +38,11 @@ class TestCharm(unittest.TestCase):
                     "summary": "n8n",
                     "command": "n8n",
                     "startup": "enabled",
-                    "environment": {"N8N_USER_FOLDER": "/home/node", "N8N_METRICS": True},
+                    "environment": {
+                        "N8N_USER_FOLDER": "/home/node",
+                        "N8N_METRICS": True,
+                        "N8N_USER_MANAGEMENT_DISABLED": False,
+                    },
                 }
             },
         }

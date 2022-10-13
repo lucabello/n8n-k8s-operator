@@ -23,6 +23,7 @@ resources:
   n8n-image:
     type: oci-image
     description: OCI image for n8n (n8nio/n8n)
+    upstream-source: n8nio/n8n
 
 requires:
   ingress:

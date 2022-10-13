@@ -86,6 +86,11 @@ class N8nCharm(CharmBase):
         return self.config["external-hostname"] or self.app.name
 
     @property
+    def _disable_authentication(self) -> bool:
+        """Return the flag for disabling user management."""
+        return self.config["disable-authentication"]
+
+    @property
     def _n8n_layer(self) -> Layer:
         return Layer(
             {
@@ -97,7 +102,11 @@ class N8nCharm(CharmBase):
                         "summary": "n8n",
                         "command": "n8n",
                         "startup": "enabled",
-                        "environment": {"N8N_USER_FOLDER": "/home/node", "N8N_METRICS": True},
+                        "environment": {
+                            "N8N_USER_FOLDER": "/home/node",
+                            "N8N_METRICS": True,
+                            "N8N_USER_MANAGEMENT_DISABLED": self._disable_authentication,
+                        },
                     }
                 },
             }
