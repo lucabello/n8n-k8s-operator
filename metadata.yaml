@@ -11,8 +11,6 @@ description: |
   Its node-based approach makes it highly versatile, enabling you to connect anything to everything.
 summary: |
   n8n is a workflow automation tool that allows to easily automate tasks across different services.
-series:
-  - focal
 
 containers:
   n8n:
