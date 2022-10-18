@@ -41,7 +41,6 @@ async def test_ingress_k8s(ops_test, n8n_charm, n8n_oci_image):
     await ops_test.model.wait_for_idle(apps=apps, status="active", timeout=1000)
 
     result = await _retrieve_proxied_endpoints(ops_test, INGRESS)
-    # assert result.get(N8N, None) == {"url": f"http://{EXTERNAL_HOSTNAME}:80/"}
     assert EXTERNAL_HOSTNAME in result
 
 
