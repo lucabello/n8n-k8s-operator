@@ -47,4 +47,5 @@ jobs:
     name: Run Tests
     needs:
       - ci-ignore
+    if: ${{ needs.ci-ignore.outputs.files != '' }} 
     uses: ./.github/workflows/ci.yaml
