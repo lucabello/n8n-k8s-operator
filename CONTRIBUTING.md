@@ -3,7 +3,7 @@
 ## Overview
 
 This document explains the processes and practices recommended for contributing enhancements to
-this operator.
+this operator. :rainbow:
 
 - Generally, before developing enhancements to this charm, you should consider [opening an issue
   ](https://github.com/lucabello/n8n-k8s-operator/issues) explaining your use case.
