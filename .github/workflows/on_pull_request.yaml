@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "-- Check everything is there --"
           which wget
-          which compgen
+          which python
           which sed
           which test
           echo "----"
@@ -25,8 +25,8 @@ jobs:
           test -f .ciignore || wget https://raw.githubusercontent.com/canonical/observability/main/.ciignore
           echo "2. Running while over file"
           while IFS= read -r globline; do
-            echo "3. Executing compgen check for line $globline"
-            compgen -G "$globline" >> .ciignore-expanded
+            echo "3. Executing python check for line $globline"
+            python -c "from glob import glob; print(\"\n\".join(glob(\"$globline\")))" >> .ciignore-expanded
           done < .ciignore
           echo "4. Loop is finished, moving to .ciignore"
           mv .ciignore-expanded .ciignore
