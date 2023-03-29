@@ -15,12 +15,18 @@ jobs:
       - name: Expand ignorelist
         shell: bash
         run: |
+          echo "1. Testing file or running wget"
           test -f .ciignore || wget https://raw.githubusercontent.com/canonical/observability/main/.ciignore
+          echo "2. Running while over file"
           while IFS= read -r globline; do
+            echo "3. Executing compgen check for line $globline"
             compgen -G "$globline" >> .ciignore-expanded
           done < .ciignore
+          echo "4. Loop is finished, moving to .ciignore"
           mv .ciignore-expanded .ciignore
+          echo "5. Executing sed to remove blank lines"
           sed -i '/^$/d' .ciignore
+          echo "6. Finished!"
       - name: Generate diff
         id: diff
         shell: bash
