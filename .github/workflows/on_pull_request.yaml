@@ -15,6 +15,12 @@ jobs:
       - name: Expand ignorelist
         shell: bash
         run: |
+          echo "-- Check everything is there --"
+          which wget
+          which compgen
+          which sed
+          which test
+          echo "----"
           echo "1. Testing file or running wget"
           test -f .ciignore || wget https://raw.githubusercontent.com/canonical/observability/main/.ciignore
           echo "2. Running while over file"
