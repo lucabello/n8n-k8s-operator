@@ -26,7 +26,7 @@ jobs:
           echo "2. Running while over file"
           while IFS= read -r globline; do
             echo "3. Executing python check for line $globline"
-            python -c "from glob import glob; print(\"\n\".join(glob(\"$globline\")))" >> .ciignore-expanded
+            python -c "from glob import glob; print(\"\n\".join(glob(\"$globline\", recursive=True)))" >> .ciignore-expanded
           done < .ciignore
           echo "4. Loop is finished, moving to .ciignore"
           mv .ciignore-expanded .ciignore
